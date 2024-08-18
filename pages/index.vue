@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SignInButton, SignedIn, SignedOut } from 'vue-clerk'
+import { SignInButton, SignedIn, SignedOut, SignOutButton } from 'vue-clerk'
 import { CARDS } from '~/consts/cards'
 </script>
 
@@ -44,6 +44,9 @@ import { CARDS } from '~/consts/cards'
             >
               Dashboard
             </NuxtLink>
+            <SignOutButton class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold">
+              Sign Out
+            </SignOutButton>
           </SignedIn>
           <SignedOut>
             <SignInButton class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold">
