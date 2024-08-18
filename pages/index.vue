@@ -44,12 +44,16 @@ import { CARDS } from '~/consts/cards'
             >
               Dashboard
             </NuxtLink>
-            <SignOutButton class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold">
+            <SignOutButton
+              class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold"
+            >
               Sign Out
             </SignOutButton>
           </SignedIn>
           <SignedOut>
-            <SignInButton class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold">
+            <SignInButton
+              class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold"
+            >
               Sign In
             </SignInButton>
           </SignedOut>
@@ -104,30 +108,30 @@ import { CARDS } from '~/consts/cards'
 </template>
 
 <style>
-  .gradient {
-    position: relative;
-    background-image: repeating-linear-gradient(
-      to right,
-      #63dffa,
-      #6c47ff,
-      #63dffa
-    );
-    z-index: 1;
-    background-position-x: 0%;
-    background-size: 200%;
-    animation: gradimate 3s linear infinite;
-    background-clip: text;
-  }
+.gradient {
+  position: relative;
+  background-image: repeating-linear-gradient(
+    to right,
+    #63dffa,
+    #6c47ff,
+    #63dffa
+  );
+  z-index: 1;
+  background-position-x: 0%;
+  background-size: 200%;
+  animation: gradimate 3s linear infinite;
+  background-clip: text;
+}
 
-  @keyframes gradimate {
-    0% {
-      background-position-x: 0%;
-    }
-    50% {
-      background-position-x: 100%;
-    }
-    100% {
-      background-position-x: 200%;
-    }
+@keyframes gradimate {
+  0% {
+    background-position-x: 0%;
   }
+  50% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 200%;
+  }
+}
 </style>
