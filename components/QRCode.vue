@@ -1,21 +1,47 @@
 <template>
   <section>
     <div class="mx-auto max-w-7xl px-5 my-16">
-      <div class="mx-auto w-full max-w-3xl text-center">
-        <h2 class="text-3xl font-normal md:text-2xl">全部二维码图片 </h2>
-        <div class="mx-auto mb-8 mt-4 max-w-[528px] md:mb-12 lg:mb-16">
-          <p class="text-[#636262]"></p>
-        </div>
-      </div>
-      <v-container grid-list-sm fluid>
-        <v-layout row wrap>
-          <v-flex v-for="(item, index) in qrcode" :key="index" xs4>
-            <v-card flat tile>
-              <v-img :src="item.url"></v-img>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
+      <nav class="flex justify-center items-center space-x-8 mb-10">
+        <a
+          href="#"
+          class="text-base font-normal md:text-xl border-b-2 py-4 w-fit active:text-primary-600 hover:text-primary-600 hover:border-primary-600"
+          >全部
+        </a>
+        <a
+          href="#"
+          class="text-base font-normal md:text-xl border-b-2 py-4 w-fit active:text-primary-600 hover:text-primary-600 hover:border-primary-600"
+          >最热
+        </a>
+        <a
+          href="#"
+          class="text-base font-normal md:text-xl border-b-2 py-4 w-fit active:text-primary-600 hover:text-primary-600 hover:border-primary-600"
+          >最新
+        </a>
+      </nav>
+      <v-row class="gap-y-6 md:gap-y-8 lg:gap-y-12">
+        <v-col
+          v-for="(item, index) in qrcode"
+          :key="index"
+          cols="12"
+          xs="12"
+          sm="6"
+          md="4"
+          lg="4"
+          class="gap-6 md:gap-8 lg:gap-12"
+        >
+          <div
+            class="relative overflow-hidden max-w-[280px] mx-auto cursor-pointer shadow-md rounded-lg"
+          >
+            <v-img
+              :src="item.url"
+              width="280"
+              aspect-ratio="1"
+              class="w-full rounded-lg"
+              cover
+            ></v-img>
+          </div>
+        </v-col>
+      </v-row>
     </div>
   </section>
 </template>
@@ -60,4 +86,4 @@ const qrcode = [
 ]
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-2xl mx-auto mt-4 md:mt-16">
+  <div class="relative max-w-2xl mx-auto mt-8 md:mt-16 px-4 md:px-8">
     <v-text-field
       clearable
       placeholder="https://example.com"
