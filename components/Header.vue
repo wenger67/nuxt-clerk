@@ -9,7 +9,7 @@
         >
           <a href="/" class="text-xl font-medium flex items-center">
             <img
-              src="~assets/logo.svg"
+              src="~/assets/logo.svg"
               alt="logo"
               class="w-auto h-8 rounded-full mr-2"
             />
