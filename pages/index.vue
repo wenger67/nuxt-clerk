@@ -104,7 +104,6 @@ import { CARDS } from '~/consts/cards'
     />
   </main>
   <LearnMore :cards="CARDS" />
-  <Footer />
 </template>
 
 <style>

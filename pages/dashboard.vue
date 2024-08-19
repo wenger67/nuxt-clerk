@@ -18,15 +18,15 @@ import { DASHBOARD_CARDS } from '~/consts/cards'
             <OrganizationSwitcher
               :appearance="{
                 elements: {
-                  organizationPreviewAvatarBox: 'size-6',
-                },
+                  organizationPreviewAvatarBox: 'size-6'
+                }
               }"
             />
             <UserButton
               :appearance="{
                 elements: {
-                  userButtonAvatarBox: 'size-6',
-                },
+                  userButtonAvatarBox: 'size-6'
+                }
               }"
               default-open
             />
@@ -40,5 +40,4 @@ import { DASHBOARD_CARDS } from '~/consts/cards'
     </div>
   </main>
   <LearnMore :cards="DASHBOARD_CARDS" />
-  <Footer />
 </template>
