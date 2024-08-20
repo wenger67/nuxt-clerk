@@ -4,6 +4,7 @@
   "semi": false,
   "singleQuote": true,
   "trailingComma": "none",
+  "printWidth": 80,
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "arrowParens": "avoid",

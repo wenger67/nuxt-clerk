@@ -1,11 +1,110 @@
 <template>
+  <section>
+    <div
+      class="tw-flex-col lg:tw-flex-row lg:tw-flex lg:tw-justify-between tw-w-screen tw-max-w-[1600px] tw-mx-auto tw-px-6 lg:tw-px-10 tw-py-20 lg:tw-py-24"
+    >
+      <div>
+        <p class="tw-font-sans tw-font-medium tw-text-black">AI QRCode</p>
+        <p
+          class="tw-font-sans tw-mt-4 tw-max-w-[350px] tw-font-light tw-text-gray-500"
+          >AI 二维码美化</p
+        >
+        <div class="my-6">
+          <!--<Social /> -->
+        </div>
+      </div>
+      <div
+        class="tw-flex tw-grow tw-flex-row tw-flex-wrap lg:tw-mx-10 lg:tw-flex-nowrap lg:tw-justify-center"
+      >
+        <div
+          class="tw-flex tw-flex-col tw-grow tw-mr-8 tw-max-w-[200px] tw-basis-[100px] tw-space-y-5 lg:tw-mx-10 tw-mt-4 lg:tw-mt-0"
+        >
+          <p class="tw-font-sans tw-font-medium tw-text-black">其他作品</p>
+          <a
+            href="#"
+            target="_blank"
+            class="tw-font-sans tw-font-light tw-text-gray-500"
+            >GPTs Works</a
+          >
+          <a
+            href="#"
+            target="_blank"
+            class="tw-font-sans tw-font-light tw-text-gray-500"
+            >GPTalk
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            class="tw-font-sans tw-font-light tw-text-gray-500"
+            >zKnow</a
+          >
+        </div>
+        <div
+          class="tw-flex tw-flex-col tw-grow tw-mr-8 tw-max-w-[200px] tw-basis-[100px] tw-space-y-5 lg:tw-mx-10 tw-mt-4 lg:tw-mt-0"
+        >
+          <p class="tw-font-sans tw-font-medium tw-text-black"> 友情链接</p>
+          <a
+            href="#"
+            target="_blank"
+            class="tw-font-sans tw-font-light tw-text-gray-500"
+            >Google</a
+          >
+          <a
+            href="#"
+            target="_blank"
+            class="tw-font-sans tw-font-light tw-text-gray-500"
+            >Facebook</a
+          >
+          <a
+            href="#"
+            target="_blank"
+            class="tw-font-sans tw-font-light tw-text-gray-500"
+            >SpaceX</a
+          >
+          <a
+            href="#"
+            target="_blank"
+            class="tw-font-sans tw-font-light tw-text-gray-500"
+            >Youtube</a
+          >
+        </div>
+      </div>
+      <div class="tw-flex tw-flex-col tw-mr-8 lg:tw-mt-0 tw-mt-8 tw-space-y-5">
+        <p class="tw-font-sans tw-font-medium tw-text-black">联系作者</p>
+        <a
+          href="#"
+          target="_blank"
+          class="tw-font-sans tw-font-light tw-text-gray-500"
+          >微信</a
+        >
+        <a
+          href="#"
+          target="_blank"
+          class="tw-font-sans tw-font-light tw-text-gray-500"
+          >QQ</a
+        >
+        <a
+          href="#"
+          target="_blank"
+          class="tw-font-sans tw-font-light tw-text-gray-500"
+          >微博</a
+        >
+        <a
+          href="#"
+          target="_blank"
+          class="tw-font-sans tw-font-light tw-text-gray-500"
+          >抖音</a
+        >
+      </div>
+    </div>
+  </section>
   <footer
-    class="max-w-[1600px] bg-white w-full mx-auto pt-6 border-t border-[#EEEEF0] flex justify-between pb-24"
+    class="tw-flex tw-justify-between tw-max-w-[1600px] tw-bg-white tw-w-full lg:tw-mx-auto tw-mx-4 tw-pt-6 tw-border-t tw-border-gray-300 tw-pb-24"
   >
     <a
       href="https://clerk.dev"
       target="_blank"
-      class="flex gap-2 font-medium text-[0.8125rem] items-center"
+      class="tw-flex tw-gap-2 tw-font-medium tw-text-sm tw-items-center"
     >
       <svg
         width="16"
@@ -29,14 +128,16 @@
         />
       </svg>
       Clerk
-      <span class="text-[#5E5F6E]">{{ new Date().getFullYear() }}</span>
+      <span class="tw-text-gray-500">{{ new Date().getFullYear() }}</span>
     </a>
-    <ul class="flex gap-2 ml-auto">
+    <ul
+      class="lg:tw-flex lg:tw-flex-row tw-flex tw-flex-col tw-gap-2 tw-ml-auto"
+    >
       <li>
         <a
           href="https://vue-clerk.com"
           target="_blank"
-          class="flex items-center gap-2 font-medium text-[0.8125rem] rounded-full px-3 py-2 hover:bg-gray-100"
+          class="tw-flex tw-items-center tw-gap-2 tw-font-medium tw-text-sm tw-rounded-full tw-px-3 tw-py-2 hover:tw-bg-gray-100"
         >
           Vue Clerk Docs
           <svg
@@ -61,7 +162,7 @@
         <a
           href="https://github.com/wobsoriano/nuxt-clerk-template"
           target="_blank"
-          class="flex items-center gap-2 font-medium text-[0.8125rem] rounded-full px-3 py-2 hover:bg-gray-100"
+          class="tw-flex tw-items-center tw-gap-2 tw-font-medium tw-text-sm tw-rounded-full tw-px-3 tw-py-2 hover:tw-bg-gray-100"
         >
           <svg
             width="16"
@@ -89,7 +190,7 @@
         <a
           href="https://x.com/wobsoriano"
           target="_blank"
-          class="flex items-center gap-2 font-medium text-[0.8125rem] rounded-full px-3 py-2 hover:bg-gray-100"
+          class="tw-flex tw-items-center tw-gap-2 tw-font-medium tw-text-sm tw-rounded-full tw-px-3 tw-py-2 hover:tw-bg-gray-100"
         >
           <svg
             width="16"
@@ -117,7 +218,7 @@
         <a
           href="https://discord.com/invite/b5rXHjAg7A"
           target="_blank"
-          class="flex items-center gap-2 font-medium text-[0.8125rem] rounded-full px-3 py-2 hover:bg-gray-100"
+          class="tw-flex tw-items-center tw-gap-2 tw-font-medium tw-text-sm tw-rounded-full tw-px-3 tw-py-2 hover:tw-bg-gray-100"
         >
           <svg
             width="16"

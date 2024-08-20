@@ -1,24 +1,26 @@
 <template>
   <section>
-    <div class="mx-auto max-w-7xl px-5 my-16">
-      <nav class="flex justify-center items-center space-x-8 mb-10">
+    <div class="tw-mx-auto tw-max-w-7xl tw-px-5 tw-my-16">
+      <nav
+        class="tw-flex tw-justify-center tw-items-center tw-space-x-8 tw-mb-10"
+      >
         <a
           href="#"
-          class="text-base font-normal md:text-xl border-b-2 py-4 w-fit active:text-primary-600 hover:text-primary-600 hover:border-primary-600"
+          class="ttw-text-sm tw-font-normal md:tw-text-base tw-border-b-2 tw-py-4 tw-w-fit hover:tw-text-primary-600 hover:tw-border-primary-600"
           >全部
         </a>
         <a
           href="#"
-          class="text-base font-normal md:text-xl border-b-2 py-4 w-fit active:text-primary-600 hover:text-primary-600 hover:border-primary-600"
+          class="tw-text-sm tw-font-normal md:tw-text-base tw-border-b-2 tw-py-4 tw-w-fit hover:tw-text-primary-600 hover:tw-border-primary-600"
           >最热
         </a>
         <a
           href="#"
-          class="text-base font-normal md:text-xl border-b-2 py-4 w-fit active:text-primary-600 hover:text-primary-600 hover:border-primary-600"
+          class="tw-text-sm tw-font-normal md:tw-text-base tw-border-b-2 tw-py-4 tw-w-fit hover:tw-text-primary-600 hover:tw-border-primary-600"
           >最新
         </a>
       </nav>
-      <v-row class="gap-y-6 md:gap-y-8 lg:gap-y-12">
+      <v-row class="tw-gap-y-4 md:tw-gap-y-8 lg:tw-gap-y-12">
         <v-col
           v-for="(item, index) in qrcode"
           :key="index"
@@ -27,16 +29,16 @@
           sm="6"
           md="4"
           lg="4"
-          class="gap-6 md:gap-8 lg:gap-12"
+          class="tw-gap-4 md:tw-gap-8 lg:tw-gap-12"
         >
           <div
-            class="relative overflow-hidden max-w-[280px] mx-auto cursor-pointer shadow-md rounded-lg"
+            class="tw-relative tw-overflow-hidden tw-max-w-[280px] tw-mx-auto tw-cursor-pointer tw-shadow-sm tw-shadow-primary-600 tw-rounded-lg"
           >
             <v-img
               :src="item.url"
               width="280"
               aspect-ratio="1"
-              class="w-full rounded-lg"
+              class="tw-w-full tw-rounded-lg"
               cover
             ></v-img>
           </div>

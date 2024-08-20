@@ -7,13 +7,14 @@ export default {
         'primary-700': '#5639CC',
         'primary-50': '#F4F2FF',
         'success-700': '#027A48',
-        'success-50': '#ECFDF3',
+        'success-50': '#ECFDF3'
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
-      },
-    },
+        mono: ['var(--font-geist-mono)']
+      }
+    }
   },
-  plugins: [],
+  prefix: 'tw-',
+  plugins: []
 }

@@ -1,5 +1,7 @@
 <template>
-  <div class="relative max-w-2xl mx-auto mt-8 md:mt-16 px-4 md:px-8">
+  <div
+    class="tw-relative tw-max-w-2xl tw-mx-auto tw-mt-8 md:tw-mt-12 tw-px-4 md:tw-px-8"
+  >
     <v-text-field
       clearable
       placeholder="https://example.com"
@@ -14,7 +16,7 @@
       ]"
     ></v-text-field>
     <v-text-field
-      class="mt-4"
+      class="tw-mt-2"
       clearable
       placeholder="please input prompt"
       variant="outlined"

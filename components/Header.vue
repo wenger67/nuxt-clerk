@@ -1,47 +1,49 @@
 <template>
   <header>
-    <div class="h-auto w-screen">
+    <div class="tw-h-auto tw-w-screen">
       <nav
-        class="font-inter mx-auto h-auto w-full max-w-[1600px] lg:relative lg:top-0"
+        class="tw-font-sans tw-mx-auto tw-h-auto tw-w-full tw-max-w-[1600px] lg:tw-relative lg:tw-top-0"
       >
         <div
-          class="flex items-center px-10 py-8 lg:flex-row lg:justify-between lg:px-14 lg:py-8 xl:px-20"
+          class="tw-flex tw-items-center tw-px-10 tw-py-8 lg:tw-justify-between lg:tw-px-14 lg:tw-py-8 xl:tw-px-20"
         >
-          <a href="/" class="text-xl font-medium flex items-center">
+          <a href="/" class="tw-text-xl tw-font-medium tw-flex tw-items-center">
             <img
               src="~/assets/logo.svg"
               alt="logo"
-              class="w-auto h-8 rounded-full mr-2"
+              class="tw-w-auto tw-h-8 tw-rounded-full tw-mr-2"
             />
-            <span class="font-bold text-primary-600 text-2xl">AI QRCode</span>
+            <span class="tw-font-bold tw-text-primary-600 tw-text-2xl"
+              >AI QRCode</span
+            >
           </a>
-          <div class="hidden md:flex ml-16">
+          <div class="tw-hidden md:tw-flex tw-ml-16">
             <a
-              class="text-base font-normal leading-6 text-gray-800 mx-4"
+              class="tw-text-base tw-font-normal tw-leading-6 tw-text-gray-800 tw-mx-4"
               v-for="nav in navigations"
               :href="nav.url"
               :target="nav.target"
               >{{ nav.title }}</a
             >
           </div>
-          <div class="flex-1" />
-          <div class="flex items-center space-x-3 lg:space-y-0">
+          <div class="tw-flex-1" />
+          <div class="tw-flex tw-items-center tw-space-x-3 lg:tw-space-y-0">
             <SignedIn>
               <NuxtLink
                 href="/dashboard"
-                class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold"
+                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-black tw-text-white tw-text-sm tw-font-semibold"
               >
                 Dashboard
               </NuxtLink>
               <SignOutButton
-                class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold"
+                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-black tw-text-white tw-text-sm tw-font-semibold"
               >
                 Sign Out
               </SignOutButton>
             </SignedIn>
             <SignedOut>
               <SignInButton
-                class="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold"
+                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-black tw-text-white tw-text-sm tw-font-semibold"
               >
                 Sign In
               </SignInButton>
