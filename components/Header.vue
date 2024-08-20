@@ -75,6 +75,19 @@ const navigations: Nav[] = [
 ]
 
 const { user } = useUser()
+const isLoginedIn = computed(() => {
+  return user.value
+})
+
+onMounted(() => {
+  watch(
+    isLoginedIn,
+    newValue => {
+      if (newValue) console.log('newValue:', newValue)
+    },
+    { immediate: true }
+  )
+})
 </script>
 
 <style scoped></style>
