@@ -23,10 +23,10 @@ const selectedCode = computed(() => {
     {
       user: user.value,
       session: session.value,
-      organization: organization.value,
+      organization: organization.value
     }[selectedType.value],
     null,
-    2,
+    2
   )
 })
 
@@ -41,54 +41,59 @@ const renderedCode = ref('')
 onMounted(() => {
   watch(
     selectedCode,
-    (value) => {
+    value => {
       if (!value) {
         return
       }
       renderedCode.value = window.Prism.highlight(
         value,
         window.Prism.languages.javascript,
-        'javascript',
+        'javascript'
       )
     },
-    { immediate: true },
+    { immediate: true }
   )
 })
 </script>
 
 <template>
-  <div :class="organization ? 'h-[54.625rem]' : 'h-[41.625rem]'">
-    <div class="w-full bg-[#F7F7F8] rounded-md p-[0.1875rem] flex gap-1.5">
+  <div :class="organization ? 'tw-h-[54.625rem]' : 'tw-h-[41.625rem]'">
+    <div
+      class="tw-w-full tw-bg-[#F7F7F8] tw-rounded-md tw-p-[0.1875rem] tw-flex tw-gap-1.5"
+    >
       <button
         v-for="type in typesToShow"
         :key="type"
-        class="capitalize rounded h-7 text-[0.8125rem] flex-1 hover:text-black font-medium" :class="[
+        class="tw-capitalize tw-rounded tw-h-7 tw-text-[0.8125rem] tw-flex-1 hover:tw-text-black tw-font-medium"
+        :class="[
           selectedType === type
-            ? 'bg-white shadow-sm text-black'
-            : 'text-[#5E5F6E]',
+            ? 'tw-bg-white tw-shadow-sm tw-text-black'
+            : 'tw-text-[#5E5F6E]'
         ]"
         @click="selectedType = type"
       >
         {{ type }}
       </button>
     </div>
-    <div class="relative h-[calc(100%-42px)]">
-      <div class="mask h-full">
+    <div class="tw-relative tw-h-[calc(100%-42px)]">
+      <div class="tw-mask tw-h-full">
         <pre class="language-javascript">
            <code class="language-javascript" v-html="renderedCode" />
          </pre>
       </div>
       <div
-        class="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent"
+        class="tw-absolute tw-right-0 tw-top-0 tw-bottom-0 tw-w-10 tw-bg-gradient-to-l tw-from-white to-transparent"
       />
-      <div class="absolute bottom-0 left-0 right-0 h-px bg-[#EEEEF0]" />
+      <div
+        class="tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-h-px tw-bg-[#EEEEF0]"
+      />
     </div>
   </div>
 </template>
 
 <style>
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   color: #c5c8c6;
   font-family: var(--font-geist-mono);
   direction: ltr;
@@ -107,7 +112,7 @@ pre[class*="language-"] {
   font-size: 12px;
 }
 
-pre[class*="language-"] {
+pre[class*='language-'] {
   padding: 16px 0px 32px;
   margin: 0.5em 0;
   overflow: auto;
@@ -116,7 +121,7 @@ pre[class*="language-"] {
   height: 100%;
 }
 
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*='language-'] {
   background: white;
   padding: 0.1em;
   border-radius: 0.3em;

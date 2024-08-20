@@ -30,7 +30,7 @@
       ]"
     >
       <template v-slot:append-inner>
-        <v-btn color="primary">生成二维码</v-btn>
+        <v-btn color="deep-purple-accent-3">生成二维码</v-btn>
       </template>
     </v-text-field>
   </div>

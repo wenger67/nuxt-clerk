@@ -5,16 +5,18 @@ import { DASHBOARD_CARDS } from '~/consts/cards'
 </script>
 
 <template>
-  <main class="max-w-[75rem] w-full mx-auto">
-    <div class="grid grid-cols-[1fr_20.5rem] gap-10 pb-10">
+  <main class="tw-max-w-[75rem] tw-w-full tw-mx-auto">
+    <div class="tw-grid tw-grid-cols-[1fr_20.5rem] tw-gap-10 tw-pb-10">
       <div>
-        <header class="flex items-center justify-between w-full h-16 gap-4">
-          <div class="flex gap-4">
+        <header
+          class="tw-flex tw-items-center tw-justify-between tw-w-full tw-h-16 tw-gap-4"
+        >
+          <div class="tw-flex tw-gap-4">
             <ClerkLogo />
             <div aria-hidden class="w-px h-6 bg-[#C7C7C8]" />
             <NuxtLogo />
           </div>
-          <div class="flex items-center gap-2">
+          <div class="tw-flex tw-items-center tw-gap-2">
             <OrganizationSwitcher
               :appearance="{
                 elements: {
@@ -34,7 +36,7 @@ import { DASHBOARD_CARDS } from '~/consts/cards'
         </header>
         <UserDetails />
       </div>
-      <div class="pt-[3.5rem]">
+      <div class="tw-pt-[3.5rem]">
         <CodeSwitcher />
       </div>
     </div>

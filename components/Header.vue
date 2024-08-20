@@ -35,17 +35,27 @@
               >
                 Dashboard
               </NuxtLink>
-              <SignOutButton
-                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-black tw-text-white tw-text-sm tw-font-semibold"
-              >
-                Sign Out
-              </SignOutButton>
+              <div class="tw-text-center">
+                <v-menu open-on-hover>
+                  <template v-slot:activator="{ props }">
+                    <v-btn color="primary" v-bind="props">Username</v-btn>
+                  </template>
+                  <v-list class="tw-text-center">
+                    <v-list-item href="#">
+                      <v-list-item-title>我的作品</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item>
+                      <SignOutButton>登出</SignOutButton>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+              </div>
             </SignedIn>
             <SignedOut>
               <SignInButton
-                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-black tw-text-white tw-text-sm tw-font-semibold"
+                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-primary-600 tw-text-white tw-text-sm tw-font-semibold"
               >
-                Sign In
+                登录
               </SignInButton>
             </SignedOut>
           </div>
@@ -57,11 +67,14 @@
 
 <script setup lang="ts">
 import { SignInButton, SignedIn, SignedOut, SignOutButton } from 'vue-clerk'
+import { useUser } from 'vue-clerk'
 import { type Nav } from '../utils/nav'
 const navigations: Nav[] = [
   { name: 'home', title: '首页', url: '/', target: '_self' },
   { name: 'pricing', title: '价格', url: '/pricing', target: '_self' }
 ]
+
+const { user } = useUser()
 </script>
 
 <style scoped></style>

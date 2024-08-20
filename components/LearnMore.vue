@@ -12,20 +12,22 @@ defineProps<{
 </script>
 
 <template>
-  <div id="features" class="relative bg-white">
-    <div class="grid grid-cols-4 gap-8 max-w-[75rem] mx-auto w-full pt-16 pb-24">
+  <div id="features" class="tw-relative tw-bg-white">
+    <div
+      class="tw-grid tw-grid-cols-4 tw-gap-8 tw-max-w-[75rem] tw-mx-auto tw-w-full tw-pt-16 tw-pb-24"
+    >
       <div>
-        <span class="text-[0.8125rem]/5 text-[#6C47FF] font-medium">
+        <span class="tw-text-[0.8125rem]/5 tw-text-[#6C47FF] tw-font-medium">
           What's next
         </span>
         <h2
-          class="text-xl/[1.625rem] font-semibold text-[#131316] tracking-tight mt-2 mb-3"
+          class="tw-text-xl/[1.625rem] tw-font-semibold tw-text-[#131316] tw-tracking-tight tw-mt-2 tw-mb-3"
         >
           Learn more from our&nbsp;resources
         </h2>
-        <p class="text-[0.8125rem]/5 text-[#5E5F6E]">
-          Prebuilt components to handle essential functionality like user sign-in,
-          sign-up, and account management.
+        <p class="tw-text-[0.8125rem]/5 tw-text-[#5E5F6E]">
+          Prebuilt components to handle essential functionality like user
+          sign-in, sign-up, and account management.
         </p>
       </div>
       <NuxtLink
@@ -33,17 +35,21 @@ defineProps<{
         :key="index"
         :href="card.href"
         target="_blank"
-        class="border border-[#F2F2F4] rounded-lg overflow-hidden flex flex-col"
+        class="tw-border tw-border-[#F2F2F4] tw-rounded-lg tw-overflow-hidden tw-flex tw-flex-col"
       >
-        <div class="px-4 py-3 bg-[#FAFAFB] space-y-1 flex-1">
-          <h3 class="text-sm font-medium text-[#131316] tracking-tight">
+        <div class="tw-px-4 tw-py-3 tw-bg-[#FAFAFB] tw-space-y-1 tw-flex-1">
+          <h3
+            class="tw-text-sm tw-font-medium tw-text-[#131316] tw-tracking-tight"
+          >
             {{ card.title }}
           </h3>
-          <p class="text-[0.8125rem]/5 text-[#5E5F6E]">
+          <p class="tw-text-[0.8125rem]/5 tw-text-[#5E5F6E]">
             {{ card.description }}
           </p>
         </div>
-        <div class="bg-[#F5F5F7] text-[#131316] px-4 py-2 text-[0.8125rem]/5 font-medium flex items-center gap-1.5 border-t border-[#EDEDF0]">
+        <div
+          class="tw-bg-[#F5F5F7] tw-text-[#131316] tw-px-4 tw-py-2 tw-text-[0.8125rem]/5 tw-font-medium tw-flex tw-items-center tw-gap-1.5 tw-border-t tw-border-[#EDEDF0]"
+        >
           {{ card.linkText }}
           <svg
             width="16"
