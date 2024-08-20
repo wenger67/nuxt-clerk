@@ -6,31 +6,32 @@ export default defineNuxtConfig({
 
   // https://vuetifyjs.com/en/getting-started/installation/#manual-setup
   build: {
-    transpile: ['vuetify'],
+    transpile: ['vuetify']
   },
   modules: [
-    '@nuxtjs/tailwindcss', '@nuxt/image',
+    '@nuxtjs/tailwindcss',
+    '@nuxt/image',
     (_options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) => {
+      nuxt.hooks.hook('vite:extendConfig', config => {
         // @ts-expect-error
         config.plugins.push(vuetify({ autoImport: true }))
       })
-    },
+    }
     //...
   ],
   vite: {
     vue: {
       template: {
-        transformAssetUrls,
-      },
-    },
+        transformAssetUrls
+      }
+    }
   },
 
   runtimeConfig: {
     public: {
-      publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
-    },
+      publishableKey: process.env.CLERK_PUBLISHABLE_KEY
+    }
   },
 
-  compatibilityDate: '2024-07-02',
+  compatibilityDate: '2024-07-02'
 })

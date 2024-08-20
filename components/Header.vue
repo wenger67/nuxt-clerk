@@ -28,19 +28,29 @@
           </div>
           <div class="tw-flex-1" />
           <div class="tw-flex tw-items-center tw-space-x-3 lg:tw-space-y-0">
-            <SignedIn>
-              <NuxtLink
-                href="/dashboard"
-                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-black tw-text-white tw-text-sm tw-font-semibold"
+            <div
+              v-if="!isLoaded"
+              class="tw-font-sans tw-font-medium tw-text-gray-500"
+              >Loading ...</div
+            >
+            <div v-else-if="!isSignedIn">
+              <SignInButton
+                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-primary-600 tw-text-white tw-text-sm tw-font-semibold"
               >
-                Dashboard
-              </NuxtLink>
+                登录
+              </SignInButton>
+            </div>
+            <div v-else>
               <div class="tw-text-center">
                 <v-menu open-on-hover>
                   <template v-slot:activator="{ props }">
-                    <v-btn color="primary" v-bind="props">Username</v-btn>
+                    <v-img
+                      :src="user?.imageUrl"
+                      class="tw-size-8 tw-rounded-full tw-cursor-pointer"
+                      v-bind="props"
+                    ></v-img>
                   </template>
-                  <v-list class="tw-text-center">
+                  <v-list class="tw-text-center tw-mt-4">
                     <v-list-item href="#">
                       <v-list-item-title>我的作品</v-list-item-title>
                     </v-list-item>
@@ -50,14 +60,16 @@
                   </v-list>
                 </v-menu>
               </div>
-            </SignedIn>
-            <SignedOut>
-              <SignInButton
-                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-primary-600 tw-text-white tw-text-sm tw-font-semibold"
+            </div>
+            <!-- <SignedIn>
+              <NuxtLink
+                href="/dashboard"
+                class="tw-px-4 tw-py-2 tw-rounded-full tw-bg-black tw-text-white tw-text-sm tw-font-semibold"
               >
-                登录
-              </SignInButton>
-            </SignedOut>
+                Dashboard
+              </NuxtLink>
+ 
+            </SignedIn> -->
           </div>
         </div>
       </nav>
@@ -66,28 +78,29 @@
 </template>
 
 <script setup lang="ts">
-import { SignInButton, SignedIn, SignedOut, SignOutButton } from 'vue-clerk'
-import { useUser } from 'vue-clerk'
-import { type Nav } from '../utils/nav'
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  SignOutButton,
+  UserButton
+} from 'vue-clerk'
+import { useAuth, useUser } from 'vue-clerk'
+
+interface Nav {
+  name: string
+  title: string
+  icon?: string
+  url: string
+  target: string
+}
+
 const navigations: Nav[] = [
   { name: 'home', title: '首页', url: '/', target: '_self' },
   { name: 'pricing', title: '价格', url: '/pricing', target: '_self' }
 ]
-
+const { getToken, isLoaded, isSignedIn } = useAuth()
 const { user } = useUser()
-const isLoginedIn = computed(() => {
-  return user.value
-})
-
-onMounted(() => {
-  watch(
-    isLoginedIn,
-    newValue => {
-      if (newValue) console.log('newValue:', newValue)
-    },
-    { immediate: true }
-  )
-})
 </script>
 
 <style scoped></style>
