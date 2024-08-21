@@ -72,3 +72,37 @@ export async function findUserByUuid(uuid: string): Promise<User | undefined> {
 
   return user
 }
+
+export async function getUserCredits(email: string): Promise<UserCredits> {
+  // initial data, including 1 free credit
+  let user_credits: UserCredits = {
+    one_time_credits: 1,
+    monthly_credits: 0,
+    total_credits: 1,
+    used_credits: 0,
+    left_credits: 1
+  }
+
+  try {
+    const used_credits = await getUserGenCount(email)
+    user_credits.used_credits = Number(used_credits)
+
+    const orders = await getUserOrders(email)
+    if (orders) {
+      orders.forEach(order => {
+        if (order.plan === 'monthly') {
+          user_credits.monthly_credits += order.credits
+        } else {
+          user_credits.one_time_credits += order.credits
+        }
+        user_credits.total_credits += order.credits
+      })
+    }
+    user_credits.left_credits = user_credits.total_credits - used_credits
+    if (user_credits.left_credits < 0) user_credits.left_credits = 0
+    return user_credits
+  } catch (e) {
+    console.log('get user credits failed: ', e)
+    return user_credits
+  }
+}
