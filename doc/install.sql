@@ -1,3 +1,4 @@
+-- Active: 1724223760011@@127.0.0.1@5432@postgres@public
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
