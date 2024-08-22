@@ -11,6 +11,7 @@
       :oninput="handleInputChange"
       :rules="[
         () => !!url || 'This field is required',
+        () => isValidComplexUrl(url) || '不是有效的url',
         () =>
           (!!url && url.length <= 100) ||
           'Address must be less than 100 characters'
@@ -33,7 +34,12 @@
       ]"
     >
       <template v-slot:append-inner>
-        <v-btn color="deep-purple-accent-2">生成二维码</v-btn>
+        <v-btn
+          color="deep-purple-accent-2"
+          @click="handleSubmit"
+          :disabled="submitState"
+          >{{ loading }}</v-btn
+        >
       </template>
     </v-text-field>
   </div>
@@ -42,9 +48,12 @@
 <script setup lang="ts">
 import { useAuth } from 'vue-clerk'
 const { isLoaded, isSignedIn, userId } = useAuth()
+const { $toast } = useNuxtApp()
 
 const url = ref('')
 const prompt = ref('')
+const submitState = ref(false)
+const loading = ref('生成二维码')
 
 const handleInputKeyup = (e: KeyboardEvent) => {
   if (e.code === 'Enter' && !e.shiftKey) {
@@ -53,26 +62,57 @@ const handleInputKeyup = (e: KeyboardEvent) => {
   }
 }
 
+const isValidComplexUrl = (url: string) => {
+  const regex =
+    /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})(:[0-9]{1,5})?(\/[^\s]*)?$/
+  return regex.test(url)
+}
+
 const handleInputChange = (e: Event) => {
   const target = e.target as HTMLInputElement
   if (target.value.length > 0 && isLoaded.value && !isSignedIn.value) {
-    // TODO add toast and delay
-    return navigateTo('/sign-in')
+    $toast.warning('请先登录使用功能。即将跳转到登录页面...')
+    submitState.value = true
+    setTimeout(() => {
+      return navigateTo('/sign-in')
+    }, 1600)
   }
 }
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
+  console.log('handleSubmit')
+  submitState.value = true
   if (isLoaded.value && !isSignedIn.value) {
-    // TODO add toast and delay
+    $toast.warning('请先登录使用功能。即将跳转到登录页面...')
+    await new Promise(resolve => {
+      setTimeout(() => {
+        resolve(true)
+      }, 1600)
+    })
     return navigateTo('/sign-in')
   }
   if (url.value.length === 0) {
-    // TODO add toast and delay
+    $toast.warning('请输入要生成图片的链接。')
+    submitState.value = false
     return
   }
   if (prompt.value.length === 0) {
-    // TODO add toast and delay
+    $toast.warning('请输入要生成图片的描述。')
+    submitState.value = false
     return
+  }
+  try {
+    loading.value = '生成中...'
+    await new Promise(resolve => {
+      setTimeout(() => {
+        resolve(true)
+      }, 3000)
+    })
+    loading.value = '生成二维码'
+    submitState.value = false
+  } catch (e) {
+    console.log('generate AI image failed', e)
+    submitState.value = false
   }
 }
 </script>

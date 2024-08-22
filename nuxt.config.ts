@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 
   // https://vuetifyjs.com/en/getting-started/installation/#manual-setup
   build: {
-    transpile: ['vuetify']
+    transpile: ['vuetify', 'vue-sonner']
   },
   modules: [
     '@nuxtjs/tailwindcss',

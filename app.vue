@@ -19,6 +19,7 @@ useHead({
 
 <template>
   <v-app>
+    <Toaster position="top-center" richColors :duration="2000" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

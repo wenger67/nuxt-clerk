@@ -12,4 +12,5 @@ pnpm install @types/pg --save-dev
 ```
 pnpm install vue-sonner
 自定义全局组件 https://github.com/cssninjaStudio/nuxt-toaster
+https://github.com/xiaoluoboding/vue-sonner
 ```
