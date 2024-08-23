@@ -4,12 +4,6 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  nitro: {
-    experimental: {
-      openAPI: true
-    }
-  },
-
   // https://vuetifyjs.com/en/getting-started/installation/#manual-setup
   build: {
     transpile: ['vuetify', 'vue-sonner']

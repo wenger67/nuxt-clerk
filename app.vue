@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Toaster } from 'vue-sonner'
 useHead({
   bodyAttrs: {
     class: 'min-h-screen flex flex-col antialiased'

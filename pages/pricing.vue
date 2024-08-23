@@ -82,7 +82,6 @@
 </template>
 
 <script setup lang="ts">
-import sleep from '../utils/utils'
 import { useAuth } from 'vue-clerk'
 const { isLoaded, isSignedIn, userId, sessionId } = useAuth()
 const tiers = [
@@ -148,7 +147,7 @@ const handleCheckout = async (
   }
   loading.value = true
   //  TODO payment
-  await sleep(2000)
+  await new Promise(resolve => setTimeout(resolve, 2000))
   loading.value = false
 }
 </script>

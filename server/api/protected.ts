@@ -1,6 +1,6 @@
 import { clerkClient, getAuth } from 'h3-clerk'
 
-export default eventHandler(async (event) => {
+export default eventHandler(async event => {
   const { userId } = getAuth(event)
 
   if (!userId) {

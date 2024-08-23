@@ -1,6 +1,6 @@
 import { useAuth } from 'vue-clerk'
 
-export default defineNuxtRouteMiddleware((to) => {
+export default defineNuxtRouteMiddleware(to => {
   const { isSignedIn } = useAuth()
 
   const protectedPages = ['dashboard']
@@ -9,9 +9,7 @@ export default defineNuxtRouteMiddleware((to) => {
   const isProtectedPage = protectedPages.includes(to.name as string)
   const isPublicPage = publicPages.includes(to.name as string)
 
-  if (isSignedIn.value && isPublicPage)
-    return navigateTo('/dashboard')
+  if (isSignedIn.value && isPublicPage) return navigateTo('/dashboard')
 
-  if (!isSignedIn.value && isProtectedPage)
-    return navigateTo('/sign-in')
+  if (!isSignedIn.value && isProtectedPage) return navigateTo('/sign-in')
 })

@@ -48,7 +48,7 @@
 <script setup lang="ts">
 import { useAuth } from 'vue-clerk'
 const { isLoaded, isSignedIn, userId } = useAuth()
-const { $toast } = useNuxtApp()
+import { toast } from 'vue-sonner'
 
 const url = ref('')
 const prompt = ref('')
@@ -71,7 +71,7 @@ const isValidComplexUrl = (url: string) => {
 const handleInputChange = (e: Event) => {
   const target = e.target as HTMLInputElement
   if (target.value.length > 0 && isLoaded.value && !isSignedIn.value) {
-    $toast.warning('请先登录使用功能。即将跳转到登录页面...')
+    toast.warning('请先登录使用功能。即将跳转到登录页面...')
     submitState.value = true
     setTimeout(() => {
       return navigateTo('/sign-in')
@@ -79,11 +79,12 @@ const handleInputChange = (e: Event) => {
   }
 }
 
+// client render
 const handleSubmit = async () => {
   console.log('handleSubmit')
   submitState.value = true
   if (isLoaded.value && !isSignedIn.value) {
-    $toast.warning('请先登录使用功能。即将跳转到登录页面...')
+    toast.warning('请先登录使用功能。即将跳转到登录页面...')
     await new Promise(resolve => {
       setTimeout(() => {
         resolve(true)
@@ -92,17 +93,19 @@ const handleSubmit = async () => {
     return navigateTo('/sign-in')
   }
   if (url.value.length === 0) {
-    $toast.warning('请输入要生成图片的链接。')
+    toast.warning('请输入要生成图片的链接。')
     submitState.value = false
     return
   }
   if (prompt.value.length === 0) {
-    $toast.warning('请输入要生成图片的描述。')
+    toast.warning('请输入要生成图片的描述。')
     submitState.value = false
     return
   }
   try {
     loading.value = '生成中...'
+    //const userInfo = await useFetch('/api/me')
+    //console.log('userInfo,', userInfo)
     await new Promise(resolve => {
       setTimeout(() => {
         resolve(true)
