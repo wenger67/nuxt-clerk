@@ -1,3 +1,4 @@
+import { getDb } from './db'
 import type { QueryResultRow } from 'pg'
 import type { User } from './user'
 export interface Task {

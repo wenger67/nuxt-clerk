@@ -14,3 +14,10 @@ pnpm install vue-sonner
 自定义全局组件 https://github.com/cssninjaStudio/nuxt-toaster
 https://github.com/xiaoluoboding/vue-sonner
 ```
+
+## uuid
+
+```
+pnpm i uuid --save
+pnpm i -D @types/uuid
+```

@@ -1,3 +1,4 @@
+import { getDb } from './db'
 import type { QueryResultRow } from 'pg'
 
 export interface Order {

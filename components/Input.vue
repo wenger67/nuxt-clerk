@@ -104,8 +104,8 @@ const handleSubmit = async () => {
   }
   try {
     loading.value = '生成中...'
-    //const userInfo = await useFetch('/api/me')
-    //console.log('userInfo,', userInfo)
+    const userInfo = await $fetch('/api/me')
+    console.log('userInfo,', userInfo)
     await new Promise(resolve => {
       setTimeout(() => {
         resolve(true)

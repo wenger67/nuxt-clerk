@@ -1,5 +1,6 @@
 import { clerkClient, getAuth } from 'h3-clerk'
 import { respData, respError } from '@/composables/resp'
+import { v7 as uuid } from 'uuid'
 import {
   findUserByEmail,
   getUserCredits,
@@ -24,8 +25,7 @@ export default eventHandler(async event => {
       email: email,
       nickname: nickName || '',
       avatar_url: avatarUrl,
-      // uuid: useId()
-      uuid: userId
+      uuid: uuid()
     }
 
     const existUser = await findUserByEmail(email)
@@ -40,6 +40,6 @@ export default eventHandler(async event => {
     return respData(userInfo)
   } catch (e) {
     console.log('get current user info failed:', e)
-    return respError('get current user info failed')
+    return respError('get current user info failed:' + e)
   }
 })

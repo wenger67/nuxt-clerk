@@ -8,6 +8,13 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify', 'vue-sonner']
   },
+  // https://github.com/nuxt/nuxt/issues/13040
+  // This is an issue with file tracing. You can work around it for now with:
+  nitro: {
+    externals: {
+      inline: ['uuid']
+    }
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
