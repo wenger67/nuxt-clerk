@@ -1,12 +1,11 @@
 import { clerkClient, getAuth } from 'h3-clerk'
-import { useId } from 'nuxt/app'
-import { respData, respError } from '~/composables/resp'
+import { respData, respError } from '@/composables/resp'
 import {
   findUserByEmail,
   getUserCredits,
   insertUser,
   User
-} from '~/composables/user'
+} from '@/composables/user'
 
 export default eventHandler(async event => {
   const { userId } = getAuth(event)
@@ -16,7 +15,6 @@ export default eventHandler(async event => {
   }
 
   const user = await clerkClient.users.getUser(userId)
-
   try {
     const email = user.emailAddresses[0].emailAddress
     const nickName = user.firstName
@@ -26,7 +24,8 @@ export default eventHandler(async event => {
       email: email,
       nickname: nickName || '',
       avatar_url: avatarUrl,
-      uuid: useId()
+      // uuid: useId()
+      uuid: userId
     }
 
     const existUser = await findUserByEmail(email)
